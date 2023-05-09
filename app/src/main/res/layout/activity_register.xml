@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back"
-    tools:context=".Controller.MainActivity">
+    tools:context=".Activity.Login">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -40,6 +40,7 @@
             android:layout_marginTop="10dp"
             />
         <EditText
+            android:id="@+id/regisUserName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="User Name"
@@ -57,6 +58,7 @@
             android:layout_marginTop="10dp"
             />
         <EditText
+            android:id="@+id/regisPassWord"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
@@ -75,6 +77,7 @@
             android:layout_marginTop="10dp"
             />
         <EditText
+            android:id="@+id/reEnterRegisPassWord"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Password"
@@ -83,15 +86,15 @@
             android:background="@drawable/edtdesign"
             android:inputType="textPassword"
             />
+
         <Button
+            android:id="@+id/btnRegis"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="Register"
-            android:textAllCaps="false"
             android:layout_gravity="left"
-            android:background="@drawable/btndesignright"
             android:layout_marginTop="20dp"
-            />
+            android:background="@drawable/btndesignright"
+            android:text="Register" />
     </LinearLayout>
 
 </RelativeLayout>
