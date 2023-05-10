@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.btl_android.RoomDatabase.AppDatabase;
+import com.example.btl_android.RoomDatabase.Entity.User;
+
 public class RegisterActivity extends AppCompatActivity {
     EditText userName, passWord, reEnterPassWord;
     Button register;
@@ -32,7 +35,24 @@ public class RegisterActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(RegisterActivity.this, "Test Register", Toast.LENGTH_SHORT).show();
+                String newUsername = userName.getText().toString().trim().toLowerCase();
+                String newPassword = passWord.getText().toString().trim();
+
+                User newUser = new User(newUsername, newPassword);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
+                        db.userDao().insertUser(newUser);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(RegisterActivity.this, "Register complete", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+                        });
+                    }
+                }).start();
             }
         });
     }

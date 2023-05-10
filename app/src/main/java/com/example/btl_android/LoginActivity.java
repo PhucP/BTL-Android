@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.btl_android.RoomDatabase.AppDatabase;
+import com.example.btl_android.RoomDatabase.Entity.User;
+
 public class LoginActivity extends AppCompatActivity {
     EditText userName, passWord;
     Button login;
@@ -35,7 +38,32 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(LoginActivity.this, "Check Button", Toast.LENGTH_SHORT).show();
+                String loginUserName = userName.getText().toString().trim().toLowerCase();
+                String loginPassWord = passWord.getText().toString().trim();
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
+                        User user = db.userDao().getUserByUsernameAndPassword(loginUserName, loginPassWord);
+
+                        if(user == null) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(LoginActivity.this, "Login Fail", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        } else {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(LoginActivity.this, "Login Pass", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                    }
+                }).start();
             }
         });
 
