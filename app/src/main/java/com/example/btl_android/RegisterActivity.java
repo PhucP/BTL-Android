@@ -37,6 +37,12 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String newUsername = userName.getText().toString().trim().toLowerCase();
                 String newPassword = passWord.getText().toString().trim();
+                String reEnterPassword = reEnterPassWord.getText().toString().trim();
+
+                if(newPassword.equalsIgnoreCase(reEnterPassword)) {
+                    Toast.makeText(RegisterActivity.this, "Re-Enter Password not match", Toast.LENGTH_SHORT).show();
+                    return; 
+                }
 
                 User newUser = new User(newUsername, newPassword);
                 new Thread(new Runnable() {
