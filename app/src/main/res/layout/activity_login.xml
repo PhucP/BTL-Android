@@ -62,6 +62,7 @@
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="200dp"
+            android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:text="Login"
             android:textAllCaps="false"

@@ -59,6 +59,8 @@ public class LoginActivity extends AppCompatActivity {
                                 @Override
                                 public void run() {
                                     Toast.makeText(LoginActivity.this, "Login Pass", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    startActivity(intent);
                                 }
                             });
                         }

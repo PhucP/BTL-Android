@@ -9,17 +9,17 @@ import java.util.List;
 @Entity(tableName = "users")
 public class User {
     @PrimaryKey(autoGenerate = true)
-    public int id;
+    private int id;
 
     @ColumnInfo(name = "user_name")
-    public String userName;
+    private String userName;
     @ColumnInfo(name = "pass_word")
-    public String passWord;
+    private String passWord;
 
-    public String name;
+    private String name;
     @ColumnInfo(name = "phone_number")
-    public String phoneNumber;
-    public String email;
+    private String phoneNumber;
+    private String email;
 
     public User() {
     }

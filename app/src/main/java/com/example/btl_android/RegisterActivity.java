@@ -39,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
                 String newPassword = passWord.getText().toString().trim();
                 String reEnterPassword = reEnterPassWord.getText().toString().trim();
 
-                if(newPassword.equalsIgnoreCase(reEnterPassword)) {
+                if(!newPassword.equalsIgnoreCase(reEnterPassword)) {
                     Toast.makeText(RegisterActivity.this, "Re-Enter Password not match", Toast.LENGTH_SHORT).show();
                     return; 
                 }
