@@ -11,25 +11,25 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.btl_android.Main.Adaptor.TaskAdapter;
+import com.example.btl_android.Main.Adapter.TaskAdapter;
 import com.example.btl_android.Main.Model.Message;
 import com.example.btl_android.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentNotification extends Fragment {
+public class FragmentStatistical extends Fragment {
     TaskAdapter messageAdapter;
     RecyclerView recyclerView;
     List<Message> list;
 
-    public FragmentNotification() {
+    public FragmentStatistical() {
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_noti, container, false);
+        View view = inflater.inflate(R.layout.fragment_statistical, container, false);
         list = new ArrayList<>();
         list.add(new Message(R.drawable.baseline_task_24, "Hoa", "Em an com chua?", "16:20"));
         list.add(new Message(R.drawable.baseline_task_24, "Hoa", "Em an com chua?", "16:20"));

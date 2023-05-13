@@ -7,8 +7,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.btl_android.Main.Adaptor.ViewPagerAdapter;
-import com.example.btl_android.R;
+import com.example.btl_android.Main.Adapter.ViewPagerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {

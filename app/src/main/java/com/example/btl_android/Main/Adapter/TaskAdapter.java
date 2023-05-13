@@ -1,4 +1,4 @@
-package com.example.btl_android.Main.Adaptor;
+package com.example.btl_android.Main.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

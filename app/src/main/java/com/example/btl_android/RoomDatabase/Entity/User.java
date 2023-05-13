@@ -21,12 +21,22 @@ public class User {
     private String phoneNumber;
     private String email;
 
+    private String birthday;
+
     public User() {
     }
 
     public User(String userName, String passWord) {
         this.userName = userName;
         this.passWord = passWord;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 
     public int getId() {
