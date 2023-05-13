@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.btl_android.Main.Adaptor.MessageAdapter;
+import com.example.btl_android.Main.Adaptor.TaskAdapter;
 import com.example.btl_android.Main.Model.Message;
 import com.example.btl_android.R;
 
@@ -20,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentNotification extends Fragment {
-    MessageAdapter messageAdapter;
+    TaskAdapter messageAdapter;
     RecyclerView recyclerView;
     List<Message> list;
 
@@ -41,7 +40,7 @@ public class FragmentNotification extends Fragment {
 
         recyclerView = view.findViewById(R.id.recycleView);
         LinearLayoutManager manager = new LinearLayoutManager(view.getContext(), RecyclerView.VERTICAL, false);
-        messageAdapter = new MessageAdapter(view.getContext(),list);
+        messageAdapter = new TaskAdapter(view.getContext(),list);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(messageAdapter);
 

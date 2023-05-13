@@ -4,10 +4,15 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity
+import java.time.LocalDateTime;
+
+@Entity(tableName = "tasks")
 public class Task {
     @PrimaryKey(autoGenerate = true)
     private int id;
+    private String time;
+
+    private String stats;
 
     private String title;
     private String description;
@@ -15,13 +20,32 @@ public class Task {
     @ColumnInfo(name = "user_id")
     private int userId;
 
-    public Task(String title, String description, int userId) {
+    public Task(String title, String description, int userId, String time) {
         this.title = title;
         this.description = description;
         this.userId = userId;
+        this.time = time;
+        this.stats = "next_task";
     }
 
     public Task() {
+        this.stats = "next_task";
+    }
+
+    public String getStats() {
+        return stats;
+    }
+
+    public void setStats(String stats) {
+        this.stats = stats;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public int getId() {

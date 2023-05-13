@@ -1,4 +1,4 @@
-package com.example.btl_android.Main.Fragment;
+package com.example.btl_android.Main.Task;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,13 +11,13 @@ import androidx.fragment.app.Fragment;
 
 import com.example.btl_android.R;
 
-public class FragmentSearch extends Fragment {
-    public FragmentSearch() {
+public class FragmentCompletedTask extends Fragment {
+    public FragmentCompletedTask() {
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_search, container, false);
+        return inflater.inflate(R.layout.fragment_completed_task, container, false);
     }
 }

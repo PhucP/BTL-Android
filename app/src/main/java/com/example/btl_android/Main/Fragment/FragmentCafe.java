@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.btl_android.Main.cafe.CafeViewPagerAdapter;
+import com.example.btl_android.Main.Task.TaskViewPagerAdapter;
 import com.example.btl_android.R;
 import com.google.android.material.tabs.TabLayout;
 
@@ -25,7 +25,7 @@ public class FragmentCafe extends Fragment {
         tabLayout = view.findViewById(R.id.tabLayout);
         viewPager = view.findViewById(R.id.viewPager);
 
-        CafeViewPagerAdapter adapter = new CafeViewPagerAdapter(getChildFragmentManager(), 3);
+        TaskViewPagerAdapter adapter = new TaskViewPagerAdapter(getChildFragmentManager(), 3);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 

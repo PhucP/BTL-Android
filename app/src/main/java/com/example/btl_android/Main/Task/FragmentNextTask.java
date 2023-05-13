@@ -1,4 +1,4 @@
-package com.example.btl_android.Main.cafe;
+package com.example.btl_android.Main.Task;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,13 +11,13 @@ import androidx.fragment.app.Fragment;
 
 import com.example.btl_android.R;
 
-public class FragmentCuli extends Fragment {
-    public FragmentCuli() {
+public class FragmentNextTask extends Fragment {
+    public FragmentNextTask() {
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_culi, container, false);
+        return inflater.inflate(R.layout.fragment_next_task, container, false);
     }
 }

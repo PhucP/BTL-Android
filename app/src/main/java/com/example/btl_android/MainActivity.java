@@ -38,13 +38,10 @@ public class MainActivity extends AppCompatActivity {
                         navigationView.getMenu().findItem(R.id.mHome).setCheckable(true);
                         break;
                     case 1:
-                        navigationView.getMenu().findItem(R.id.mTask).setCheckable(true);
+                        navigationView.getMenu().findItem(R.id.mStatistical).setCheckable(true);
                         break;
                     case 2:
-                        navigationView.getMenu().findItem(R.id.mAddTask).setCheckable(true);
-                        break;
-                    case 3:
-                        navigationView.getMenu().findItem(R.id.mCompletedTask).setCheckable(true);
+                        navigationView.getMenu().findItem(R.id.mUser).setCheckable(true);
                         break;
                 }
             }
@@ -60,12 +57,10 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if(R.id.mHome == item.getItemId())
                     viewPager.setCurrentItem(0);
-                else if(R.id.mTask == item.getItemId())
+                else if(R.id.mStatistical == item.getItemId())
                     viewPager.setCurrentItem(1);
-                else if(R.id.mAddTask == item.getItemId())
+                else if(R.id.mUser == item.getItemId())
                     viewPager.setCurrentItem(2);
-                else if(R.id.mCompletedTask == item.getItemId())
-                    viewPager.setCurrentItem(3);
                 return true;
             }
         });

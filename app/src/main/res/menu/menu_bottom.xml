@@ -2,18 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/mHome"
-        android:title="Home"
-        android:icon="@drawable/baseline_home_24"/>
-    <item
-        android:id="@+id/mTask"
-        android:title="Uncompleted Task"
+        android:title="Task"
         android:icon="@drawable/baseline_task_24"/>
     <item
-        android:id="@+id/mAddTask"
-        android:title="Add Task"
-        android:icon="@drawable/baseline_add_task_24"/>
+        android:id="@+id/mStatistical"
+        android:title="Statistical"
+        android:icon="@drawable/baseline_query_stats_24"/>
     <item
-        android:id="@+id/mCompletedTask"
-        android:title="Completed Task"
-        android:icon="@drawable/baseline_task_alt_24"/>
+        android:id="@+id/mUser"
+        android:title="User"
+        android:icon="@drawable/baseline_supervised_user_circle_24"/>
 </menu>
