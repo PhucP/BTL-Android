@@ -1,5 +1,7 @@
 package com.example.btl_android.Main.Adapter;
 
+import android.os.Bundle;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -11,19 +13,36 @@ import com.example.btl_android.Main.Fragment.FragmentStatistical;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     private static final int pageNum = 3;
-    public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
+    private Bundle bundle;
+    public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior, Bundle bundle) {
         super(fm, behavior);
+        this.bundle = bundle;
     }
 
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        System.out.println(position);
         switch (position) {
-            case 0: return new FragmentTask();
-            case 1: return new FragmentStatistical();
-            case 2: return new FragmentUser();
-            default: return new FragmentTask();
+            case 0: {
+                FragmentTask fragmentTask = new FragmentTask();
+                fragmentTask.setArguments(bundle);
+                return fragmentTask;
+            }
+            case 1: {
+                FragmentStatistical fragmentStatistical = new FragmentStatistical();
+                fragmentStatistical.setArguments(bundle);
+                return fragmentStatistical;
+            }
+            case 2: {
+                FragmentUser fragmentUser = new FragmentUser();
+                fragmentUser.setArguments(bundle);
+                return fragmentUser;
+            }
+            default: {
+                FragmentTask fragmentTask = new FragmentTask();
+                fragmentTask.setArguments(bundle);
+                return fragmentTask;
+            }
         }
     }
 

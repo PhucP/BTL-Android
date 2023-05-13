@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.btl_android.Main.Adapter.ViewPagerAdapter;
+import com.example.btl_android.RoomDatabase.Entity.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,12 +20,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        init();
+        activity();
+    }
+
+    private void init() {
+        //get current user from login
+        Intent intent = getIntent();
+        User currentUser = (User) intent.getSerializableExtra("currentUser");
+
         viewPager = findViewById(R.id.viewPager);
         navigationView = findViewById(R.id.navigation);
 
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), 4);
+        //set adapter and send user for all fragment
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("currentUser", currentUser);
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), 3, bundle);
         viewPager.setAdapter(adapter);
+    }
 
+    private void activity() {
+        viewPagerActivity();
+        navigationViewActivity();
+    }
+
+    private void viewPagerActivity() {
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -47,10 +68,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onPageScrollStateChanged(int state) {
-
             }
         });
+    }
 
+    private void navigationViewActivity() {
         navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

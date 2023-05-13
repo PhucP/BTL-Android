@@ -38,16 +38,16 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String loginUserName = userName.getText().toString().trim().toLowerCase();
+                String loginUserName = userName.getText().toString().trim();
                 String loginPassWord = passWord.getText().toString().trim();
 
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
-                        User user = db.userDao().getUserByUsernameAndPassword(loginUserName, loginPassWord);
+                        User currentUser = db.userDao().getUserByUsernameAndPassword(loginUserName, loginPassWord);
 
-                        if(user == null) {
+                        if(currentUser == null) {
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
@@ -60,6 +60,7 @@ public class LoginActivity extends AppCompatActivity {
                                 public void run() {
                                     Toast.makeText(LoginActivity.this, "Login Pass", Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    intent.putExtra("currentUser", currentUser);
                                     startActivity(intent);
                                 }
                             });

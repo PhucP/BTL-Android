@@ -4,10 +4,11 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity(tableName = "tasks")
-public class Task {
+public class Task implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String time;

@@ -21,8 +21,8 @@
             <RelativeLayout
                 android:id="@+id/layout_head"
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:background="#5B72F1">
+                android:layout_height="210dp"
+                android:background="#68AFD6">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -33,15 +33,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginTop="40dp"
+                        android:layout_marginTop="20dp"
                         android:elevation="5dp"
                         app:cardCornerRadius="10dp">
 
                         <ImageView
                             android:id="@+id/imageView_profile_dp"
-                            android:layout_width="140dp"
+                            android:layout_width="120dp"
                             android:src="@drawable/baseline_query_stats_24"
-                            android:layout_height="140dp"
+                            android:layout_height="120dp"
                             android:scaleType="centerCrop" />
                     </androidx.cardview.widget.CardView>
                     <ProgressBar
@@ -56,17 +56,16 @@
                 </RelativeLayout>
 
                 <TextView
-                    android:id="@+id/textView_show_welcome"
+                    android:id="@+id/userName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/RL_imageView"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="30dp"
-                    android:hint="test"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                    android:textColor="@android:color/white" />
+                    android:hint="user name"
+                    android:textSize="25dp"
+                    android:textAlignment="center"/>
             </RelativeLayout>
 
             <RelativeLayout
