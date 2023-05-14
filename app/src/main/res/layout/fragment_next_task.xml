@@ -10,6 +10,7 @@
     android:paddingLeft="20dp">
 
     <FrameLayout
+        android:layout_marginTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -21,15 +22,7 @@
    <TextView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       android:text="Hello"
-       android:layout_marginTop="20dp"
-       android:textColor="@color/colorAccent"
-       android:textSize="18sp"/>
-
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="Completed Task"
+       android:text="Next Task"
        fontPath="fonts/nunito_extra_bold.ttf"
        android:textStyle="bold"
        android:textColor="@color/colorAccent"
@@ -62,7 +55,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/taskRecycler"/>
+        android:id="@+id/nextRecycler"/>
 
         </FrameLayout>
 
@@ -79,6 +72,8 @@
             android:drawableLeft="@drawable/ic_add_black_24dp"
             android:textAlignment="center"
             android:layout_weight="0.5"
+            android:clickable="true"
+            android:focusable="true"
             android:layout_marginBottom="20dp"/>
     </LinearLayout>
 

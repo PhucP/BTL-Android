@@ -15,11 +15,11 @@ import com.example.btl_android.R;
 
 import java.util.List;
 
-public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
+public class StatisticalAdapter extends RecyclerView.Adapter<StatisticalAdapter.ViewHolder>{
     private Context context;
     private List<Message> list;
 
-    public TaskAdapter(Context context, List<Message> list) {
+    public StatisticalAdapter(Context context, List<Message> list) {
         this.context = context;
         this.list = list;
     }

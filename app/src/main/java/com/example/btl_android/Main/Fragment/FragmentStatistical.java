@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.btl_android.Main.Adapter.TaskAdapter;
+import com.example.btl_android.Main.Adapter.StatisticalAdapter;
 import com.example.btl_android.Main.Model.Message;
 import com.example.btl_android.R;
 
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentStatistical extends Fragment {
-    TaskAdapter messageAdapter;
+    StatisticalAdapter messageAdapter;
     RecyclerView recyclerView;
     List<Message> list;
 
@@ -40,7 +40,7 @@ public class FragmentStatistical extends Fragment {
 
         recyclerView = view.findViewById(R.id.recycleView);
         LinearLayoutManager manager = new LinearLayoutManager(view.getContext(), RecyclerView.VERTICAL, false);
-        messageAdapter = new TaskAdapter(view.getContext(),list);
+        messageAdapter = new StatisticalAdapter(view.getContext(),list);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(messageAdapter);
 

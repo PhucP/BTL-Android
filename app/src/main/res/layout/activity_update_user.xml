@@ -190,10 +190,10 @@
                         android:layout_below="@id/textView_update_profile_gender"
                         android:layout_marginTop="10dp"
                         android:hint="enter your email"
+                        android:inputType="textEmailAddress"
                         android:layout_marginBottom="10dp"
                         android:layout_toEndOf="@+id/imageViewGender"
                         android:background="@android:color/transparent"
-                        android:inputType="date"
                         android:padding="6dp"
                         android:textSize="16sp" />
 
