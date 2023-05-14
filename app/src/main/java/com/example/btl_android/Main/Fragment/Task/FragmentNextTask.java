@@ -1,10 +1,10 @@
 package com.example.btl_android.Main.Fragment.Task;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,9 +12,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.btl_android.Main.Adapter.StatisticalAdapter;
 import com.example.btl_android.Main.Adapter.TaskAdapter;
 import com.example.btl_android.R;
+import com.example.btl_android.RoomDatabase.AppDatabase;
 import com.example.btl_android.RoomDatabase.Entity.Task;
 import com.example.btl_android.RoomDatabase.Entity.User;
 
@@ -43,10 +43,10 @@ public class FragmentNextTask extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_next_task, container, false);
+
         list = new ArrayList<>();
-        list.add(new Task());
-        list.add(new Task());
-        list.add(new Task());
+        GetNextTask getNextTask = new GetNextTask();
+        getNextTask.execute();
 
         recyclerView = view.findViewById(R.id.nextRecycler);
         LinearLayoutManager manager = new LinearLayoutManager(view.getContext(), RecyclerView.VERTICAL, false);
@@ -55,5 +55,22 @@ public class FragmentNextTask extends Fragment {
         recyclerView.setAdapter(taskAdapter);
 
         return view;
+    }
+
+    public class GetNextTask extends AsyncTask<Void, Void, List<Task>> {
+        @Override
+        protected List<Task> doInBackground(Void... voids) {
+            AppDatabase db = AppDatabase.getDatabase(getContext());
+            return db.taskDao().getNextTask(currentUser.getId());
+        }
+
+        @Override
+        protected void onPostExecute(List<Task> tasks) {
+            super.onPostExecute(tasks);
+            list.clear();
+            list.addAll(tasks);
+//            System.out.println("test" + list.size());
+            taskAdapter.notifyDataSetChanged();
+        }
     }
 }

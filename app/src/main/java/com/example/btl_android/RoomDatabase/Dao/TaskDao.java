@@ -14,7 +14,7 @@ import java.util.List;
 @Dao
 public interface TaskDao {
     @Insert
-    void insertUser(Task task);
+    void insertTask(Task task);
 
     @Delete
     void deleteTask(Task task);
@@ -26,12 +26,12 @@ public interface TaskDao {
     List<Task> getAllTask(int user_id);
 
     @Query("SELECT * FROM tasks WHERE user_id = :user_id AND stats = 'uncompleted'")
-    List<Task> getUncompletedTask(String user_id);
+    List<Task> getUncompletedTask(int user_id);
 
     @Query("SELECT * FROM tasks WHERE user_id = :user_id AND stats = 'completed'")
-    List<Task> getCompletedTask(String user_id);
+    List<Task> getCompletedTask(int user_id);
 
     @Query("SELECT * FROM tasks WHERE user_id = :user_id AND stats = 'next_task'")
-    List<Task> getNextTask(String user_id);
+    List<Task> getNextTask(int user_id);
 }
 
