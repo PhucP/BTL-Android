@@ -221,6 +221,8 @@
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:text="Update Profile"
+                android:clickable="true"
+                android:focusable="true"
                 android:id="@+id/updateProfile"/>
         </LinearLayout>
     </ScrollView>
