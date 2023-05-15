@@ -11,7 +11,7 @@ import com.example.btl_android.RoomDatabase.Dao.UserDao;
 import com.example.btl_android.RoomDatabase.Entity.Task;
 import com.example.btl_android.RoomDatabase.Entity.User;
 
-@Database(entities = {User.class, Task.class}, version = 4)
+@Database(entities = {User.class, Task.class}, version = 5)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract UserDao userDao();
     public abstract TaskDao taskDao();
