@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">BTL-Android</string>
+    <string-array name="dropdown_items">
+        <item>next_task</item>
+        <item>completed</item>
+        <item>uncompleted</item>
+    </string-array>
 </resources>

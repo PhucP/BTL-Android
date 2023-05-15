@@ -57,9 +57,6 @@ public class AddTaskActivity extends AppCompatActivity {
                 newTask.setTitle(newTitle);
                 newTask.setUserId(currentUser.getId());
 
-                Intent intent = getIntent();
-                setResult(RESULT_OK, getIntent());
-
                 AddTaskActivity.CreateTask task = new AddTaskActivity.CreateTask();
                 task.execute(newTask);
             }

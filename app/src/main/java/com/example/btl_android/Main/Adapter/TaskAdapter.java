@@ -11,9 +11,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.btl_android.LoginActivity;
 import com.example.btl_android.Main.Model.Message;
+import com.example.btl_android.MainActivity;
 import com.example.btl_android.R;
 import com.example.btl_android.RoomDatabase.Entity.Task;
+import com.example.btl_android.UpdateTaskActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -104,6 +107,8 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView day, date, month, time, title, description, status;
+        private ImageView options;
+
         public ViewHolder(@NonNull View view) {
             super(view);
             day = view.findViewById(R.id.day);
@@ -113,6 +118,20 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.ViewHolder>{
             title = view.findViewById(R.id.title);
             description = view.findViewById(R.id.description);
             status = view.findViewById(R.id.status);
+            options = view.findViewById(R.id.options);
+
+            options.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        Task currentTask = list.get(position);
+                        Intent intent = new Intent(context, UpdateTaskActivity.class);
+                        intent.putExtra("currentTask", currentTask);
+                        context.startActivity(intent);
+                    }
+                }
+            });
         }
     }
 }

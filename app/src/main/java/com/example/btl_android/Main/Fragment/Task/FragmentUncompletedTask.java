@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -57,19 +59,24 @@ public class FragmentUncompletedTask extends Fragment {
         return view;
     }
 
-    public class GetUnCompletedTask extends AsyncTask<Void, Void, List<Task>> {
+    public class GetUnCompletedTask extends AsyncTask<Void, Void, LiveData<List<Task>>> {
         @Override
-        protected List<Task> doInBackground(Void... voids) {
+        protected LiveData<List<Task>> doInBackground(Void... voids) {
             AppDatabase db = AppDatabase.getDatabase(getContext());
             return db.taskDao().getUncompletedTask(currentUser.getId());
         }
 
         @Override
-        protected void onPostExecute(List<Task> tasks) {
-            super.onPostExecute(tasks);
-            list.clear();
-            list.addAll(tasks);
-            taskAdapter.notifyDataSetChanged();
+        protected void onPostExecute(LiveData<List<Task>> taskLiveData) {
+            super.onPostExecute(taskLiveData);
+            taskLiveData.observe(getViewLifecycleOwner(), new Observer<List<Task>>() {
+                @Override
+                public void onChanged(List<Task> tasks) {
+                    list.clear();
+                    list.addAll(tasks);
+                    taskAdapter.notifyDataSetChanged();
+                }
+            });
         }
     }
 }
