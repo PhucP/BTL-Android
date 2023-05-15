@@ -16,7 +16,7 @@ import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.models.PieModel;
 
 public class FragmentStatistical extends Fragment {
-    TextView tvR, tvPython, tvCPP, tvJava;
+    TextView nextTask, completedTask, unCompletedTask, totalTask;
     PieChart pieChart;
 
     public FragmentStatistical() {
@@ -27,11 +27,11 @@ public class FragmentStatistical extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_statistical, container, false);
 
-        tvR = view.findViewById(R.id.tvR);
-        tvPython = view.findViewById(R.id.tvPython);
-        tvCPP = view.findViewById(R.id.tvCPP);
-        tvJava = view.findViewById(R.id.tvJava);
+        nextTask = view.findViewById(R.id.tvR);
+        completedTask = view.findViewById(R.id.tvPython);
+        unCompletedTask = view.findViewById(R.id.tvCPP);
         pieChart = view.findViewById(R.id.piechart);
+        totalTask = view.findViewById(R.id.totalTask);
 
         setData();
 
@@ -40,33 +40,19 @@ public class FragmentStatistical extends Fragment {
 
     private void setData()
     {
+        int numOfNext, numOfCompleted, numOfUnCompleted;
+        numOfNext = 40;
+        numOfCompleted = 25;
+        numOfUnCompleted = 35;
         // Set the percentage of language used
-        tvR.setText(Integer.toString(40));
-        tvPython.setText(Integer.toString(30));
-        tvCPP.setText(Integer.toString(5));
-        tvJava.setText(Integer.toString(25));
+        nextTask.setText(numOfNext + "%");
+        completedTask.setText(numOfCompleted + "%");
+        unCompletedTask.setText(numOfUnCompleted + "%");
 
         // Set the data and color to the pie chart
-        pieChart.addPieSlice(
-                new PieModel(
-                        "R",
-                        Integer.parseInt(tvR.getText().toString()),
-                        Color.parseColor("#FFA726")));
-        pieChart.addPieSlice(
-                new PieModel(
-                        "Python",
-                        Integer.parseInt(tvPython.getText().toString()),
-                        Color.parseColor("#66BB6A")));
-        pieChart.addPieSlice(
-                new PieModel(
-                        "C++",
-                        Integer.parseInt(tvCPP.getText().toString()),
-                        Color.parseColor("#EF5350")));
-        pieChart.addPieSlice(
-                new PieModel(
-                        "Java",
-                        Integer.parseInt(tvJava.getText().toString()),
-                        Color.parseColor("#29B6F6")));
+        pieChart.addPieSlice(new PieModel("Next Task", numOfNext, Color.parseColor("#FFA726")));
+        pieChart.addPieSlice(new PieModel("Completed Task", numOfCompleted, Color.parseColor("#66BB6A")));
+        pieChart.addPieSlice(new PieModel("UnCompleted Task", numOfUnCompleted, Color.parseColor("#EF5350")));
 
         // To animate the pie chart
         pieChart.startAnimation();

@@ -50,87 +50,54 @@
                     android:layout_height="15dp"
                     android:layout_gravity="center_vertical">
 
-                    <!--View to display the yellow color icon-->
                     <View
                         android:layout_width="15dp"
                         android:layout_height="match_parent"
                         android:background="@color/R"/>
 
-                    <!--Text view to display R -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="R"
+                        android:text="Next Task"
                         android:paddingLeft="10dp"/>
 
                 </LinearLayout>
-
-                <!--Linear layout to display Python-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="15dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginTop="5dp">
 
-                    <!--View to display the green color icon-->
                     <View
                         android:layout_width="15dp"
                         android:layout_height="match_parent"
                         android:background="@color/Python"/>
 
-                    <!--Text view to display python text -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Python"
+                        android:text="Completed Task"
                         android:paddingLeft="10dp"/>
 
                 </LinearLayout>
-
-                <!--Linear layout to display C++-->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="15dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginTop="5dp">
 
-                    <!--View to display the red color icon-->
                     <View
                         android:layout_width="15dp"
                         android:layout_height="match_parent"
                         android:background="@color/CPP"/>
 
-                    <!--Text view to display C++ text -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="C++"
+                        android:text="UnCompleted Task"
                         android:paddingLeft="10dp"/>
 
                 </LinearLayout>
-
-                <!--Linear layout to display Java-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginTop="5dp">
-
-                    <!--View to display the blue color icon-->
-                    <View
-                        android:layout_width="15dp"
-                        android:layout_height="match_parent"
-                        android:background="@color/Java"/>
-
-                    <!--Text view to display Java text -->
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Java"
-                        android:paddingLeft="10dp"/>
-
-                </LinearLayout>
-
             </LinearLayout>
 
         </LinearLayout>
@@ -139,11 +106,11 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="260dp"
+        android:layout_height="250dp"
         android:layout_below="@+id/cardViewGraph"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="60dp"
         android:layout_marginBottom="20dp"
         android:elevation="10dp"
         app:cardCornerRadius="10dp"
@@ -157,13 +124,12 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Use of Programming Languages(In Percentage):"
+                android:text="Task Statistical:"
                 android:textSize="23sp"
                 android:textStyle="bold"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="20dp"/>
 
-            <!--View to display the line-->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -180,12 +146,11 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp">
 
-                <!--Text view to display R -->
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="R"
+                    android:text="Next Task"
                     android:textSize="18sp"/>
 
                 <TextView
@@ -195,13 +160,12 @@
                     android:id="@+id/tvR"
                     android:textAlignment="textEnd"
                     android:textSize="18sp"
-                    android:textColor="@color/color_one"
+                    android:textColor="#FEA626"
                     android:textStyle="bold"
                     android:fontFamily="sans-serif-light"
                     android:layout_alignParentRight="true"/>
             </RelativeLayout>
 
-            <!--View to display the line-->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -221,7 +185,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="Python"
+                    android:text="Completed Task"
                     android:textSize="18sp"/>
 
                 <TextView
@@ -231,7 +195,7 @@
                     android:id="@+id/tvPython"
                     android:textAlignment="textEnd"
                     android:textSize="18sp"
-                    android:textColor="@color/color_one"
+                    android:textColor="#66BA6A"
                     android:textStyle="bold"
                     android:fontFamily="sans-serif-light"
                     android:layout_alignParentRight="true"/>
@@ -256,7 +220,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="C++"
+                    android:text="UnCompleted Task"
                     android:textSize="18sp"/>
                 <TextView
                     android:layout_width="fill_parent"
@@ -265,12 +229,13 @@
                     android:id="@+id/tvCPP"
                     android:textAlignment="textEnd"
                     android:textSize="18sp"
-                    android:textColor="@color/color_one"
+                    android:textColor="#EE5350"
                     android:textStyle="bold"
                     android:fontFamily="sans-serif-light"
                     android:layout_alignParentRight="true"/>
 
             </RelativeLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -290,23 +255,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-light"
-                    android:text="Java"
+                    android:text="Total Task"
                     android:textSize="18sp"/>
-
                 <TextView
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="0"
-                    android:id="@+id/tvJava"
+                    android:id="@+id/totalTask"
                     android:textAlignment="textEnd"
                     android:textSize="18sp"
-                    android:textColor="@color/color_one"
+                    android:textColor="#9223BA"
                     android:textStyle="bold"
                     android:fontFamily="sans-serif-light"
                     android:layout_alignParentRight="true"/>
 
             </RelativeLayout>
-
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
