@@ -11,9 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.btl_android.LoginActivity;
-import com.example.btl_android.Main.Model.Message;
-import com.example.btl_android.MainActivity;
 import com.example.btl_android.R;
 import com.example.btl_android.RoomDatabase.Entity.Task;
 import com.example.btl_android.UpdateTaskActivity;
