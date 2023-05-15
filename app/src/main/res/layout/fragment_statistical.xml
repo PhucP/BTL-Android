@@ -47,7 +47,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="15dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center_vertical">
 
                     <View
@@ -64,7 +64,7 @@
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="15dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginTop="5dp">
 
@@ -82,7 +82,7 @@
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="15dp"
+                    android:layout_height="20dp"
                     android:layout_gravity="center_vertical"
                     android:layout_marginTop="5dp">
 
@@ -122,9 +122,12 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/anim"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Task Statistical:"
+                android:clickable="true"
+                android:focusable="true"
                 android:textSize="23sp"
                 android:textStyle="bold"
                 android:layout_marginLeft="25dp"
