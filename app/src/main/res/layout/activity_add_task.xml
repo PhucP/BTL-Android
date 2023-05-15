@@ -13,100 +13,143 @@
     android:paddingBottom="50dp"
     android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/ic_add_black_24dp"
-            android:scaleType="centerCrop" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:text="Add a task"
-            android:textColor="@android:color/black"
-            android:textSize="22sp"
-            tools:ignore="MissingPrefix" />
-
-        <TextView
-            android:layout_marginLeft="3dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:text="Task title"
-            tools:ignore="MissingPrefix" />
-
-        <EditText
-            android:textSize="14sp"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:singleLine="true"
-            android:background="@drawable/btn_border"
-            android:padding="10dp"
-            android:id="@+id/title"
-            tools:ignore="MissingPrefix" />
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_marginLeft="3dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Task description"
-        tools:ignore="MissingPrefix" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_add_black_24dp"
+                android:scaleType="centerCrop" />
 
-    <EditText
-        android:textSize="14sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:singleLine="true"
-        android:background="@drawable/btn_border"
-        android:padding="10dp"
-        android:id="@+id/description"
-        tools:ignore="MissingPrefix" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:text="Add a task"
+                android:textColor="@android:color/black"
+                android:textSize="22sp"
+                tools:ignore="MissingPrefix" />
 
-    <TextView
-        android:layout_marginLeft="3dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Task date"
-        tools:ignore="MissingPrefix" />
+        </LinearLayout>
 
-    <EditText
-        android:textSize="14sp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:singleLine="true"
-        android:background="@drawable/btn_border"
-        android:padding="10dp"
-        android:id="@+id/date"
-        tools:ignore="MissingPrefix" />
+       <LinearLayout
+           android:layout_marginTop="20dp"
+           android:layout_width="match_parent"
+           android:orientation="vertical"
+           android:background="@drawable/border"
+           android:layout_height="wrap_content">
+           <TextView
+               android:layout_marginLeft="3dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="30dp"
+               android:text="Task title"
+               tools:ignore="MissingPrefix" />
 
-    <TextView
-        android:layout_marginLeft="3dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Task time"
-        tools:ignore="MissingPrefix" />
+           <EditText
+               android:textSize="14sp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="5dp"
+               android:singleLine="true"
+               android:background="@drawable/btn_border"
+               android:padding="10dp"
+               android:id="@+id/title"
+               tools:ignore="MissingPrefix" />
 
-    <EditText
-        android:id="@+id/time"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/btn_border"
-        android:padding="10dp"
-        android:singleLine="true"
-        android:textSize="14sp"
-        tools:ignore="MissingPrefix" />
+           <TextView
+               android:layout_marginLeft="3dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="30dp"
+               android:text="Task description"
+               tools:ignore="MissingPrefix" />
 
+           <EditText
+               android:textSize="14sp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="5dp"
+               android:singleLine="true"
+               android:background="@drawable/btn_border"
+               android:padding="10dp"
+               android:id="@+id/description"
+               tools:ignore="MissingPrefix" />
+
+           <TextView
+               android:layout_marginLeft="3dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="30dp"
+               android:text="Task date"
+               tools:ignore="MissingPrefix" />
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:orientation="horizontal"
+               android:layout_height="wrap_content">
+
+               <EditText
+                   android:textSize="14sp"
+                   android:layout_width="150dp"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="5dp"
+                   android:singleLine="true"
+                   android:background="@drawable/btn_border"
+                   android:padding="10dp"
+                   android:id="@+id/date"
+                   tools:ignore="MissingPrefix" />
+               <ImageView
+                   android:layout_marginLeft="10dp"
+                   android:id="@+id/imgDate"
+                   android:src="@drawable/calendar"
+                   android:layout_gravity="center"
+                   android:layout_width="30dp"
+                   android:layout_height="30dp"/>
+           </LinearLayout>
+
+           <TextView
+               android:layout_marginLeft="3dp"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="30dp"
+               android:text="Task time"
+               tools:ignore="MissingPrefix" />
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:orientation="horizontal"
+               android:layout_marginBottom="40dp"
+               android:layout_height="wrap_content">
+
+               <EditText
+                   android:id="@+id/time"
+                   android:layout_width="150dp"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="5dp"
+                   android:background="@drawable/btn_border"
+                   android:padding="10dp"
+                   android:singleLine="true"
+                   android:textSize="14sp"
+                   tools:ignore="MissingPrefix" />
+
+               <ImageView
+                   android:layout_marginLeft="10dp"
+                   android:id="@+id/imgTime"
+                   android:src="@drawable/times"
+                   android:layout_gravity="center"
+                   android:layout_width="30dp"
+                   android:layout_height="30dp"/>
+
+           </LinearLayout>
+
+
+       </LinearLayout>
     <Button
         android:layout_width="250dp"
         android:layout_height="wrap_content"
@@ -115,7 +158,7 @@
         android:text="Add task"
         android:background="@drawable/btn_background"
         android:textColor="@color/colorPrimary"
-        android:layout_marginTop="40dp" />s
+        android:layout_marginTop="40dp" />
 
 </LinearLayout>
 </ScrollView>

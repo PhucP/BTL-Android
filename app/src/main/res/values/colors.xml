@@ -15,4 +15,6 @@
     <color name="Python">#66BB6A</color>
     <color name="CPP">#EF5350</color>
     <color name="Java">#29B6F6</color>
+    <color name="buttonColor">#2E3191</color>
+    <color name="mainColor">#00B4C5</color>
 </resources>

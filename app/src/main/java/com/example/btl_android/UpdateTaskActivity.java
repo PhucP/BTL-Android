@@ -2,19 +2,26 @@ package com.example.btl_android;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.example.btl_android.RoomDatabase.AppDatabase;
 import com.example.btl_android.RoomDatabase.Entity.Task;
 import com.example.btl_android.RoomDatabase.Entity.User;
+
+import java.util.Calendar;
 
 public class UpdateTaskActivity extends AppCompatActivity {
     private EditText title, description, date, time;
@@ -23,6 +30,7 @@ public class UpdateTaskActivity extends AppCompatActivity {
     private TextView deleteTask;
     private Intent intent;
     private Task currentTask;
+    private ImageView imgDate, imgTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,11 +72,50 @@ public class UpdateTaskActivity extends AppCompatActivity {
         spinner = findViewById(R.id.spinner);
         updateTask = findViewById(R.id.btnUpdateTask);
         deleteTask = findViewById(R.id.deleteTask);
+        imgDate = findViewById(R.id.imgDate);
+        imgTime = findViewById(R.id.imgTime);
     }
 
     private void activity() {
         updateTaskActivity();
         deleteTaskActivity();
+        changeTimeActivity();
+    }
+
+    private void changeTimeActivity() {
+        imgTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar c = Calendar.getInstance();
+                int hh = c.get(Calendar.HOUR_OF_DAY);
+                int mm = c.get(Calendar.MINUTE);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(UpdateTaskActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int h, int m) {
+                        time.setText(h + ":" + m);
+                    }
+                }, hh, mm, true);
+                timePickerDialog.show();
+            }
+        });
+
+        imgDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar c = Calendar.getInstance();
+                int d = c.get(Calendar.DAY_OF_MONTH);
+                int m = c.get(Calendar.MONTH);
+                int y = c.get(Calendar.YEAR);
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(UpdateTaskActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int y, int mm, int d) {
+                        date.setText(d + "/" + (mm+1) + "/" + y);
+                    }
+                }, y, m, d);
+                datePickerDialog.show();
+            }
+        });
     }
 
     private void updateTaskActivity() {

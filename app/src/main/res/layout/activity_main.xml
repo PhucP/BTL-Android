@@ -19,7 +19,7 @@
         app:itemTextColor="@color/color_navigation"
         app:itemIconTint="@color/color_navigation"
         app:menu="@menu/menu_bottom"
-        android:background="#1FBAD6"
+        android:background="@color/mainColor"
         android:layout_height="wrap_content"/>
 
 </RelativeLayout>

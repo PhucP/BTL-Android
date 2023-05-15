@@ -22,7 +22,7 @@
                 android:id="@+id/layout_head"
                 android:layout_width="match_parent"
                 android:layout_height="210dp"
-                android:background="#68AFD6">
+                android:background="@color/white">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -40,7 +40,7 @@
                         <ImageView
                             android:id="@+id/imageView_profile_dp"
                             android:layout_width="120dp"
-                            android:src="@drawable/baseline_query_stats_24"
+                            android:src="@drawable/images"
                             android:layout_height="120dp"
                             android:scaleType="centerCrop" />
                     </androidx.cardview.widget.CardView>

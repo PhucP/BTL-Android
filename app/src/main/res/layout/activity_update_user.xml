@@ -73,10 +73,10 @@
 
                     <View
                         android:id="@+id/divider_name"
+                        android:layout_toRightOf="@id/imageViewName"
                         android:layout_width="200dp"
                         android:layout_height="1dp"
                         android:layout_below="@id/textView_update_profile_name"
-                        android:layout_centerHorizontal="true"
                         android:background="@android:color/darker_gray" />
 
                     <EditText
@@ -124,7 +124,7 @@
                         android:layout_width="200dp"
                         android:layout_height="1dp"
                         android:layout_below="@id/textView_update_profile_dob"
-                        android:layout_centerHorizontal="true"
+                        android:layout_toRightOf="@id/imageViewDoB"
                         android:background="@android:color/darker_gray" />
 
                     <EditText
@@ -142,7 +142,7 @@
                         android:textSize="16sp" />
 
                     <ImageView
-                        android:id="@+id/imageView_date_picker"
+                        android:id="@+id/timePicker"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_below="@id/textView_update_profile_dob"
@@ -181,7 +181,7 @@
                         android:layout_width="200dp"
                         android:layout_height="1dp"
                         android:layout_below="@id/textView_update_profile_gender"
-                        android:layout_centerHorizontal="true"
+                        android:layout_toRightOf="@id/imageViewGender"
                         android:background="@android:color/darker_gray" />
                     <EditText
                         android:id="@+id/email"
@@ -229,7 +229,7 @@
                         android:layout_width="200dp"
                         android:layout_height="1dp"
                         android:layout_below="@id/textView_update_profile_mobile"
-                        android:layout_centerHorizontal="true"
+                        android:layout_toRightOf="@id/imageViewMobile"
                         android:background="@android:color/darker_gray" />
 
                     <EditText
