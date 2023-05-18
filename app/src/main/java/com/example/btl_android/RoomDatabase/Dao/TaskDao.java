@@ -8,20 +8,22 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.example.btl_android.RoomDatabase.Entity.Task;
-import com.example.btl_android.RoomDatabase.Entity.User;
 
 import java.util.List;
 
 @Dao
 public interface TaskDao {
     @Insert
-    void insertTask(Task task);
+    long insertTask(Task task);
 
     @Delete
     void deleteTask(Task task);
 
     @Update
     void updateTask(Task task);
+
+    @Query("SELECT * FROM tasks WHERE id = :id LIMIT 1")
+    Task findById(int id);
 
     @Query("SELECT * FROM tasks WHERE user_id = :user_id")
     LiveData<List<Task>> getAllTask(int user_id);
@@ -34,5 +36,8 @@ public interface TaskDao {
 
     @Query("SELECT * FROM tasks WHERE user_id = :user_id AND stats = 'next_task'")
     LiveData<List<Task>> getNextTask(int user_id);
+
+    @Query("SELECT * FROM tasks WHERE user_id = :user_id AND time = :time AND title = :title LIMIT 1")
+    Task getTaskInTime(int user_id, String time, String title);
 }
 

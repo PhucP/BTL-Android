@@ -15,22 +15,23 @@ import java.util.Date;
 import java.util.Locale;
 
 import com.example.btl_android.Main.Receiver.AlarmReceiver;
+import com.example.btl_android.RoomDatabase.Entity.Task;
 
 public class NotificationScheduler {
-    public static void scheduleNotification(Context context, String dateTime, int taskId, String taskTitle, String taskTime) {
+    public static void scheduleNotification(Context context, Task task) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
         try {
-            Date date = sdf.parse(dateTime);
+            Date date = sdf.parse(task.getTime());
 
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
 
             Intent intent = new Intent(context, AlarmReceiver.class);
-            intent.putExtra("taskId", taskId);
-            intent.putExtra("taskTitle", taskTitle);
-            intent.putExtra("taskTime", taskTime);
+            intent.putExtra("taskId", task.getId());
+            intent.putExtra("taskTitle", task.getTitle());
+            intent.putExtra("taskDes", task.getDescription());
 
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(context, taskId, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(context, task.getId(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 

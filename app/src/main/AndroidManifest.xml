@@ -41,6 +41,8 @@
         </activity>
 
         <receiver android:name=".Main.Receiver.AlarmReceiver"/>
+        <receiver android:name=".Main.Receiver.CompleteTaskReceiver" />
+        <receiver android:name=".Main.Receiver.UnCompleteTaskReceiver" />
     </application>
 
 </manifest>

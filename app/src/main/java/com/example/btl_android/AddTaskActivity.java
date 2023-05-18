@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.btl_android.Main.Receiver.NotificationScheduler;
 import com.example.btl_android.RoomDatabase.AppDatabase;
 import com.example.btl_android.RoomDatabase.Entity.Task;
 import com.example.btl_android.RoomDatabase.Entity.User;
@@ -108,8 +109,29 @@ public class AddTaskActivity extends AppCompatActivity {
 
                 AddTaskActivity.CreateTask task = new AddTaskActivity.CreateTask();
                 task.execute(newTask);
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
+                        Task getTask = db.taskDao().getTaskInTime(newTask.getUserId(), newTask.getTime(), newTask.getTitle());
+                        if (getTask != null) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    setAlarmForThisTask(getTask);
+                                    finish();
+                                }
+                            });
+                        }
+                    }
+                }).start();
             }
         });
+    }
+
+    private void setAlarmForThisTask(Task tempTask) {
+        NotificationScheduler.scheduleNotification(getApplicationContext(), tempTask);
     }
 
     private class CreateTask extends AsyncTask<Task, Void, Void> {
@@ -123,7 +145,6 @@ public class AddTaskActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             Toast.makeText(AddTaskActivity.this, "Created", Toast.LENGTH_SHORT).show();
-            finish();
         }
     }
 }

@@ -34,22 +34,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
 
-        Button btn = findViewById(R.id.testBtn);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Đặt thông báo vào thời điểm cụ thể
-                String dateTime = "18/05/2023 11:43"; // Thời điểm muốn đặt thông báo
-                int taskId = 123; // ID của nhiệm vụ (task)
-                String taskTitle = "Task Title"; // Tiêu đề nhiệm vụ
-                String taskTime = "Task Time"; // Thông tin thời gian nhiệm vụ
-
-                NotificationScheduler.scheduleNotification(getApplicationContext(), dateTime, taskId, taskTitle, taskTime);
-
-                // Hủy thông báo dựa trên ID của nhiệm vụ
-            }
-        });
-
         init();
         activity();
     }
