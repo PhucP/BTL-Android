@@ -39,5 +39,14 @@ public interface TaskDao {
 
     @Query("SELECT * FROM tasks WHERE user_id = :user_id AND time = :time AND title = :title LIMIT 1")
     Task getTaskInTime(int user_id, String time, String title);
+
+    @Query("SELECT * FROM tasks WHERE user_id = :user_id AND time LIKE :time AND stats = 'next_task'")
+    LiveData<List<Task>> getNextTaskInDay(int user_id, String time);
+
+    @Query("SELECT * FROM tasks WHERE user_id = :user_id AND time LIKE :time AND stats = 'completed'")
+    LiveData<List<Task>> getCompletedTaskInDay(int user_id, String time);
+
+    @Query("SELECT * FROM tasks WHERE user_id = :user_id AND time LIKE :time AND stats = 'uncompleted'")
+    LiveData<List<Task>> getUnCompletedTaskInDay(int user_id, String time);
 }
 

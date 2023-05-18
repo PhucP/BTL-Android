@@ -63,8 +63,6 @@ public class FragmentStatistical extends Fragment {
         FragmentStatistical.GetAllTask allTask = new FragmentStatistical.GetAllTask();
         allTask.execute();
 
-        //setData();
-
         anim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,19 +93,17 @@ public class FragmentStatistical extends Fragment {
         numOfNext = (int) (numOfNext*100/listAllTask.size());
         numOfCompleted = (int) (numOfCompleted*100/listAllTask.size());
         numOfUnCompleted = 100 - numOfNext - numOfCompleted;
-        // Set the percentage of language used
+
         nextTask.setText(numOfNext + "%");
         completedTask.setText(numOfCompleted + "%");
         unCompletedTask.setText(numOfUnCompleted + "%");
         totalTask.setText(listAllTask.size() + "");
 
-        // Set the data and color to the pie chart
         pieChart.clearChart();
         pieChart.addPieSlice(new PieModel("Next Task", numOfNext, Color.parseColor("#FFA726")));
         pieChart.addPieSlice(new PieModel("Completed Task", numOfCompleted, Color.parseColor("#66BB6A")));
         pieChart.addPieSlice(new PieModel("UnCompleted Task", numOfUnCompleted, Color.parseColor("#EF5350")));
 
-        // To animate the pie chart
         pieChart.startAnimation();
     }
 

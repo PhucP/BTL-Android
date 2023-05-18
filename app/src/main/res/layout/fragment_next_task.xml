@@ -17,26 +17,37 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-   <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="Next Task"
-       fontPath="fonts/nunito_extra_bold.ttf"
-       android:textStyle="bold"
-       android:textColor="@color/colorAccent"
-       android:textSize="28sp"
-       tools:ignore="MissingPrefix" />
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Next Task"
+               fontPath="fonts/nunito_extra_bold.ttf"
+               android:textStyle="bold"
+               android:textColor="@color/colorAccent"
+               android:textSize="28sp"
+               tools:ignore="MissingPrefix" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="150dp"
+                android:layout_gravity="right|center"
+                android:background="@drawable/all"
+                android:id="@+id/all"/>
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="right|center"
+                android:background="@drawable/calendar"
+                android:id="@+id/choseDay"/>
 
         </LinearLayout>
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_gravity="right|center"
-            android:background="@drawable/calendar"
-            android:id="@+id/calendar"/>
+
 
     </FrameLayout>
 

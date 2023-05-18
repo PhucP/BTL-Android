@@ -21,7 +21,11 @@ import com.example.btl_android.RoomDatabase.AppDatabase;
 import com.example.btl_android.RoomDatabase.Entity.Task;
 import com.example.btl_android.RoomDatabase.Entity.User;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class AddTaskActivity extends AppCompatActivity {
     private EditText title, time, date, description;
@@ -100,6 +104,14 @@ public class AddTaskActivity extends AppCompatActivity {
                 String newTitle = title.getText().toString().trim();
                 String newDes = description.getText().toString().trim();
                 String newTime = date.getText().toString().trim() + " " + time.getText().toString().trim();
+
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
+                try {
+                    Date date = sdf.parse(newTime);
+                } catch (ParseException e) {
+                    Toast.makeText(AddTaskActivity.this, "Time didn't formatted", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 Task newTask = new Task();
                 newTask.setDescription(newDes);

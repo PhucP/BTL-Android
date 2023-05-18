@@ -1,6 +1,7 @@
 package com.example.btl_android;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationManagerCompat;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
@@ -17,11 +18,16 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.btl_android.Main.Receiver.NotificationScheduler;
 import com.example.btl_android.RoomDatabase.AppDatabase;
 import com.example.btl_android.RoomDatabase.Entity.Task;
 import com.example.btl_android.RoomDatabase.Entity.User;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class UpdateTaskActivity extends AppCompatActivity {
     private EditText title, description, date, time;
@@ -125,6 +131,14 @@ public class UpdateTaskActivity extends AppCompatActivity {
                 String updateTitle = title.getText().toString().trim();
                 String updateDes = description.getText().toString().trim();
                 String updateTime = date.getText().toString().trim() + " " + time.getText().toString().trim();
+
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
+                try {
+                    Date date = sdf.parse(updateTime);
+                } catch (ParseException e) {
+                    Toast.makeText(UpdateTaskActivity.this, "Time didn't formatted", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 String updateStats = spinner.getSelectedItem().toString();
 
                 Task updatedTask = new Task();
@@ -137,8 +151,35 @@ public class UpdateTaskActivity extends AppCompatActivity {
 
                 UpdateTaskActivity.UpdateTask task = new UpdateTaskActivity.UpdateTask();
                 task.execute(updatedTask);
+
+                if(updateStats.equals("next_task")) {
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            AppDatabase db = AppDatabase.getDatabase(getApplicationContext());
+                            Task getTask = db.taskDao().findById(updatedTask.getId());
+                            if (getTask != null) {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        setAlarmForThisTask(getTask);
+                                    }
+                                });
+                            }
+                        }
+                    }).start();
+                } else {
+                    NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getApplicationContext());
+                    notificationManager.cancel(updatedTask.getId());
+                }
+
+                finish();
             }
         });
+    }
+
+    private void setAlarmForThisTask(Task tempTask) {
+        NotificationScheduler.scheduleNotification(getApplicationContext(), tempTask);
     }
 
     private class UpdateTask extends AsyncTask<Task, Void, Void> {
